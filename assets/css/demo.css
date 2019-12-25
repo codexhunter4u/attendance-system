@@ -1,0 +1,42 @@
+/* All styles created for demo purposes only, you may not need this for your project */
+.demo-button button {
+  margin-bottom: 5px; }
+
+.demo-icons li {
+  margin-bottom: 50px;
+  text-align: center; }
+
+.demo-icons .lnr,
+.demo-icons .fa {
+  font-size: 28px; }
+
+.demo-icons .cssclass {
+  display: block;
+  margin-top: 5px;
+  margin-left: 5px; }
+
+/*# sourceMappingURL=demo.css.map */
+.formRegister,.formPasswordReset{
+	display: none;
+}
+.userActive{
+	cursor: pointer;
+}
+.fa-warning{
+	background-color: #f0ad4e !important;
+}
+.fa-primary{
+	background-color: #0081c2 !important;
+}
+.fa-success{
+	background-color: #5cb85c !important;
+}
+.fa-info{
+	background-color: #5bc0de !important;
+}
+.fa-danger{
+	background-color: #d9534f !important;
+}
+.progress{
+	background-color: #ecebeb !important;
+}
