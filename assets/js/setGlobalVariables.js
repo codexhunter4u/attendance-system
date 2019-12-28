@@ -1,9 +1,8 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Global variables set for table heading to resue the same html table
  */
-
 var usersTablesHeading = [];
 
 usersTablesHeading.alluser = ['Sr.No','User name','User Email','Gender','User Status','User Type','Action'];

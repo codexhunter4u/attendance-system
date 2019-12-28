@@ -1,3 +1,8 @@
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Get user detils for user dashboard
+ */
 function getUsersDetails(where,heading){
 
   $(".tblUsers").DataTable().destroy();

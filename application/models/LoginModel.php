@@ -10,7 +10,15 @@ class LoginModel extends CI_Model {
         $this->load->library('session');
     }
 
-    public function signUp($request){
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Sign up Stallion Club
+     * @param : array
+     * @return : encoded json
+     */ 
+    public function signUp($request)
+    {
         
         $request['created_on'] = date("Y-m-d h:i:s");
         $request['modified_on'] = date("Y-m-d h:i:s");
@@ -30,7 +38,15 @@ class LoginModel extends CI_Model {
         return json_encode($response);
     }
 
-    public function login($request,$cookie){
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Sign in Stallion Club
+     * @param : array
+     * @return : encoded json
+     */ 
+    public function login($request,$cookie)
+    {
 
         $db = get_instance()->db->conn_id;
         $username = mysqli_real_escape_string($db,$request['user_name']);
@@ -63,7 +79,15 @@ class LoginModel extends CI_Model {
 
     }
 
-    public function resetPassword($request){
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Reset user password
+     * @param : array
+     * @return : encoded json
+     */ 
+    public function resetPassword($request)
+    {
     
         $query = $this->db->query("SELECT userid,active FROM user_profile
         WHERE user_email = ? ",array(trim($request['useremail'])));

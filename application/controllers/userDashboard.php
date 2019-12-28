@@ -13,6 +13,13 @@ class UserDashboard extends CI_Controller {
         }
     }
 
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Default view to show the all details on users dashbard
+     * @param : null
+     * @return : encoded json
+     */
 	public function index()
 	{ 
         $data['userdata'] = $this->userdata['userdata'];
@@ -23,7 +30,15 @@ class UserDashboard extends CI_Controller {
         $this->load->view('include/dashboardscript');
 	}
 
-    public function getUsersDetails(){
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Get the all user details
+     * @param : array
+     * @return : encoded json
+     */
+    public function getUsersDetails()
+    {
 
         $data = array(
             'state' => $this->input->post('state'), 
@@ -33,7 +48,15 @@ class UserDashboard extends CI_Controller {
         echo $res;
     }
 
-    function downloadCsv($where = null, $column = null){
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Download the reports based on users conditions
+     * @param : $where : string,int, $column : string
+     * @return : encoded json
+     */
+    function downloadCsv($where = null, $column = null)
+    {
         
         $column = ($column == 'reg') ? 'p.active' : 'p.gender';
         $group_by = ($column == 'reg') ? 'p.active' : 'p.gender';

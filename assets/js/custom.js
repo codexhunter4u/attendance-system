@@ -1,6 +1,10 @@
 var checksum = false;
 var isEmpty = false;
 
+/**
+ * @date : 28/12/2019
+ * @Desc : On page load manage the manage Sign-In/ Up form
+ */
 $( "#registerEvent" ).click(function() {
   $(".formPasswordReset").hide();
  	$(".formLogin").hide();
@@ -8,6 +12,11 @@ $( "#registerEvent" ).click(function() {
  	$(this).prop('disabled', true);
 });
 
+
+/**
+ * @date : 28/12/2019
+ * @Desc : Register users 
+ */
 $("#registerBtn").click(function() {	
 
    if(validateForm()){
@@ -42,6 +51,11 @@ $("#registerBtn").click(function() {
    
 });
 
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Validate the confirm password and password on runtime.
+ */
 $("#user_confirmpassword").keyup(function(e) {
 	if ($('#password').val() != '' && $(this).val() !== $("#password").val()) {
       $(this).css('border-color','red');
@@ -53,7 +67,11 @@ $("#user_confirmpassword").keyup(function(e) {
 
 });
 
-
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Validate sing-in/up form for empty value and email & date formate
+ */
 function validateForm(){
 
 	var isEmpty;
@@ -84,11 +102,21 @@ function validateForm(){
 	return isEmpty;
 }
 
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Validate Email formate
+ */
 function validateEmail(email) {
   var emailReg = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
   return emailReg.test(email);
 }
 
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Vlaidate Date formate
+ */
 function validateDate(date,field){
     
     var birthday = moment(date);
@@ -106,7 +134,11 @@ function validateDate(date,field){
 
 }
 
-
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Sign-In in system
+ */
 $("#signIn").click(function() {
 
    if( ($("#username").val() != '') && ($("#userpassword").val() != '') ){
@@ -147,12 +179,23 @@ $("#signIn").click(function() {
    
 });
 
+
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : manage the pages on click Password reset.
+ */
 $( "#resetPassBtn" ).click(function() {
    $(".lead").text('Reset your account password');
    $(".formLogin").hide();
    $(".formPasswordReset").show();
 });
 
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Reset user password
+ */
 $("#resetPass").click(function() {  
     
    if(formEmptyValidator('frmPassReset')){
@@ -181,6 +224,11 @@ $("#resetPass").click(function() {
    
 });
 
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Form validate while password reset.
+ */
 function formEmptyValidator(formName){
 
   var isEmpty = false;
@@ -198,4 +246,31 @@ function formEmptyValidator(formName){
 
   return isEmpty;
 
+}
+
+/**
+ * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+ * @date : 28/12/2019
+ * @Desc : Auto logout from system is the screen Idle for 1 min.
+ */
+var idleTime = 0;
+$(document).ready(function () {
+    //Increment the idle time counter every minute.
+    setInterval(timerIncrement, 60000); // 1 minute
+    //Zero the idle timer on mouse movement.
+    $(this).mousemove(function (e) {
+        idleTime = 0;
+    });
+    $(this).keypress(function (e) {
+        idleTime = 0;
+    });
+    
+});
+
+function timerIncrement() {
+    idleTime = idleTime + 1;
+    if (idleTime > 10) { // 10 minutes
+        window.location.reload();
+        window.location.href = BASEPATH+'login/logout';
+    }
 }

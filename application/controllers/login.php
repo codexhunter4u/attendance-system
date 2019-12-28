@@ -8,6 +8,13 @@ class Login extends CI_Controller {
         $this->load->model('loginModel');
     }
 
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Default login view page
+     * @param : null
+     * @return : html
+     */
 	public function index()
 	{
 		$this->load->view('include/headerscript');
@@ -15,8 +22,15 @@ class Login extends CI_Controller {
 		$this->load->view('include/footerscript');
 	}
 
-	
-	public function signUp() {
+	/**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Sign up in Stallion club
+     * @param : Array
+     * @return : encoded json
+     */
+	public function signUp() 
+    {
 
         $formData = $this->input->post('formData');
         $data = json_decode($formData, TRUE);
@@ -32,7 +46,15 @@ class Login extends CI_Controller {
         echo $res = $this->loginModel->signUp($data);
     }
 
-    public function login() {
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Login with Admin/All user in Stallion club
+     * @param : array
+     * @return : encoded json
+     */
+    public function login() 
+    {
         
         $formData = $this->input->post('formData');
         $rememberMe = $this->input->post('rememberMe');
@@ -59,7 +81,15 @@ class Login extends CI_Controller {
         echo (json_encode($result));
     }
      
-    public function resetPassword() {
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Reset user password
+     * @param : null
+     * @return : encoded json
+     */ 
+    public function resetPassword() 
+    {
 
         $formData = $this->input->post('resetPassformData');
         $data = json_decode($formData, TRUE);
@@ -74,7 +104,15 @@ class Login extends CI_Controller {
         echo $res = $this->loginModel->resetPassword($data);
     }
 
-    public function logout() {
+    /**
+     * @author : Mohan Jadhav<mohan212jadhav@gmail.com>
+     * @date : 28/12/2019
+     * @Desc : Logout from system
+     * @param : null
+     * @return : null
+     */ 
+    public function logout() 
+    {
 
         $this->session->sess_destroy();
         redirect('login');
