@@ -1,4 +1,4 @@
-# Php, Bootstrap, Mysql Attendance sytem
+# Php, CI & Bootstrap, Mysql Attendance sytem
 
 Content discussed : 
  - Simple attendance system
